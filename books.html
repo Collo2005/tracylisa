@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L.T. Nyawira - Books</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #f8d7e0; /* soft blush pink */
+            --secondary-color: #e6e6fa; /* lavender */
+            --accent-color: #d37f9e; /* darker pink */
+            --text-color: #333333;
+            --light-color: #fff8f5; /* ivory */
+            --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Section */
+        header {
+            background-color: var(--primary-color);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 24px;
+            color: var(--accent-color);
+            margin-right: 30px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-right: 25px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .waitpad-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .waitpad-btn:hover {
+            background-color: #c06a86;
+            transform: translateY(-2px);
+        }
+        
+        /* Banner Section */
+        .banner {
+            background-color: var(--secondary-color);
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .banner h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .banner p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Search & Filter Section */
+        .search-filter {
+            background-color: white;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .search-box {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            min-width: 200px;
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            transition: var(--transition);
+        }
+        
+        .search-box input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 5px rgba(211, 127, 158, 0.5);
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 8px 15px;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        /* Books Grid */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .book-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .book-cover {
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .book-card:hover .book-cover img {
+            transform: scale(1.05);
+        }
+        
+        .book-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .book-info {
+            padding: 20px;
+        }
+        
+        .book-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .book-short-desc {
+            color: #666;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            /*ebkit-line-clamp: 3;*/
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .book-stats {
+            display: flex;
+            gap: 15px;
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .book-link {
+            display: block;
+            background-color: var(--accent-color);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-bottom: 15px;
+        }
+        
+        .book-link:hover {
+            background-color: #c06a86;
+        }
+        
+        .expand-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            color: var(--accent-color);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            width: 100%;
+            transition: var(--transition);
+        }
+        
+        .expand-btn:hover {
+            color: #c06a86;
+        }
+        
+        .expand-icon {
+            transition: var(--transition);
+            margin-left: 5px;
+        }
+        
+        .expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+        
+        .book-expanded {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        
+        .book-card.expanded .book-expanded {
+            max-height: 500px;
+            padding-bottom: 20px;
+        }
+        
+        .expanded-section {
+            margin-bottom: 15px;
+        }
+        
+        .expanded-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+        
+        .status-completed {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .status-ongoing {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-hold {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .review-quote {
+            font-style: italic;
+            border-left: 3px solid var(--primary-color);
+            padding-left: 10px;
+            margin-top: 5px;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #13172b;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 24px;
+            color: white;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .social-wattpad::before {
+            content: "W";
+            font-weight: bold;
+        }
+        
+        .social-instagram::before {
+            content: "IG";
+            font-weight: bold;
+        }
+        
+        .social-twitter::before {
+            content: "X";
+            font-weight: bold;
+        }
+        
+        .social-facebook::before {
+            content: "f";
+            font-weight: bold;
+        }
+        
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .copyright {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-disclaimer {
+            text-align: center;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            padding-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content,
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .footer-social {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <nav>
+            <div class="logo">L.T. Nyawira</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="books.html" style="color: var(--accent-color);">Books</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="https://www.wattpad.com/user/LyssahTraicey" target="_blank" class="waitpad-btn">Wattpad</a>
+        </nav>
+    </header>
+    
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="container">
+            <h1>Stories That Touch Hearts</h1>
+            <p>Explore my collection of romance novels where emotions flow through words and love stories come alive on every page.</p>
+        </div>
+    </section>
+    
+    <!-- Search & Filter Section -->
+    <div class="container">
+        <div class="search-filter">
+            <div class="search-box">
+                <input type="text" placeholder="Search for books, keywords..." id="search-input">
+            </div>
+            <div class="filter-options">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+                <button class="filter-btn" data-filter="ongoing">Ongoing</button>
+                <button class="filter-btn" data-filter="matriarchy">Matriarchy Series</button>
+                <button class="filter-btn" data-filter="standalone">Standalone</button>
+            </div>
+        </div>
+        
+        <!-- Books Grid -->
+        <div class="books-grid">
+            <!-- Book Card 1 -->
+            <div class="book-card" data-category="completed matriarchy">
+                <div class="book-cover">
+                    <img src="/api/placeholder/400/320" alt="Queen of the Plains">
+                    <span class="book-tag">#212 in Help</span>
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">Queen of the Plains</h3>
+                    <p class="book-short-desc">Lulu, the wild card of the Kiarie sisters, was never one for love... until she met someone worth changing for.</p>
+                    <div class="book-stats">
+                        <div class="stat">
+                            <span>👁️ Reads:</span>
+                            <span>24.1K</span>
+                        </div>
+                        <div class="stat">
+                            <span>❤️ Votes:</span>
+                            <span>2.1K</span>
+                        </div>
+                    </div>
+                    <a href="https://www.wattpad.com/story/example" target="_blank" class="book-link">Read on Wattpad</a>
+                    <button class="expand-btn">
+                        More Info
+                        <span class="expand-icon">▼</span>
+                    </button>
+                </div>
+                <div class="book-expanded">
+                    <div class="expanded-section">
+                        <div class="expanded-title">Full Synopsis</div>
+                        <p>Lulu Kiarie is known for her fierce independence and carefree spirit. As the middle child of the powerful Kiarie family, she's carved her own path away from family expectations. But when a handsome stranger challenges everything she thought she knew about herself, Lulu finds herself questioning her own rules about love and vulnerability. Set against the breathtaking backdrop of Kenya's plains, this is a story about finding love in unexpected places and learning that being strong sometimes means letting someone in.</p>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Status</div>
+                        <span class="status-badge status-completed">Completed</span>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Series Info</div>
+                        <p>The Matriarchy Series (Book 2)</p>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Last Updated</div>
+                        <p>October 15, 2023</p>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Reader Review</div>
+                        <p class="review-quote">"This story had me in tears and smiling like an idiot. Lulu's journey touched my heart in ways I didn't expect!"</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Book Card 2 -->
+            <div class="book-card" data-category="completed matriarchy">
+                <div class="book-cover">
+                    <img src="/api/placeholder/400/320" alt="Empire of Hearts">
+                    <span class="book-tag">#354 in Romance</span>
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">Empire of Hearts</h3>
+                    <p class="book-short-desc">Nkiru Kiarie built an empire with her bare hands, but can she let herself build a life with the one man who sees beyond her walls?</p>
+                    <div class="book-stats">
+                        <div class="stat">
+                            <span>👁️ Reads:</span>
+                            <span>31.5K</span>
+                        </div>
+                        <div class="stat">
+                            <span>❤️ Votes:</span>
+                            <span>3.2K</span>
+                        </div>
+                    </div>
+                    <a href="https://www.wattpad.com/story/example2" target="_blank" class="book-link">Read on Wattpad</a>
+                    <button class="expand-btn">
+                        More Info
+                        <span class="expand-icon">▼</span>
+                    </button>
+                </div>
+                <div class="book-expanded">
+                    <div class="expanded-section">
+                        <div class="expanded-title">Full Synopsis</div>
+                        <p>As the eldest Kiarie daughter, Nkiru has always carried the weight of responsibility. Her business prowess has made her one of Kenya's most successful entrepreneurs, but her personal life remains a closed book. When a business rivalry brings her face to face with charming yet determined Jabari Okafor, sparks fly in more ways than one. Can Nkiru learn to trust someone with her heart after dedicating her life to building an empire? A passionate tale of ambition, vulnerability, and finding love when you least expect it.</p>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Status</div>
+                        <span class="status-badge status-completed">Completed</span>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Series Info</div>
+                        <p>The Matriarchy Series (Book 1)</p>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Last Updated</div>
+                        <p>July 3, 2023</p>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Reader Review</div>
+                        <p class="review-quote">"Nkiru is the strong female lead I've been waiting for! Her journey from ice queen to vulnerable lover had me hooked from start to finish."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Book Card 3 -->
+            <div class="book-card" data-category="ongoing matriarchy">
+                <div class="book-cover">
+                    <img src="/api/placeholder/400/320" alt="Whispers in Nairobi">
+                    <span class="book-tag">#178 in Romance</span>
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">Whispers in Nairobi</h3>
+                    <p class="book-short-desc">When Zuri Kiarie returns to Nairobi after years abroad, she doesn't expect to fall for the city's most notorious bachelor.</p>
+                    <div class="book-stats">
+                        <div class="stat">
+                            <span>👁️ Reads:</span>
+                            <span>18.7K</span>
+                        </div>
+                        <div class="stat">
+                            <span>❤️ Votes:</span>
+                            <span>1.8K</span>
+                        </div>
+                    </div>
+                    <a href="https://www.wattpad.com/story/example3" target="_blank" class="book-link">Read on Wattpad</a>
+                    <button class="expand-btn">
+                        More Info
+                        <span class="expand-icon">▼</span>
+                    </button>
+                </div>
+                <div class="book-expanded">
+                    <div class="expanded-section">
+                        <div class="expanded-title">Full Synopsis</div>
+                        <p>After completing her studies abroad, the youngest Kiarie sister returns to her roots in Nairobi with plans to make her mark in the art world. Zuri's talent and fresh perspective quickly make her a rising star, but it's her unexpected connection with gallery owner and infamous heartbreaker Kimani Njoroge that really sets the city's gossip mill ablaze. As their professional and personal lives intertwine, Zuri must decide if the whispers about Kimani's past are enough to keep her heart guarded or if some reputations are meant to be broken.</p>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Status</div>
+                        <span class="status-badge status-ongoing">Ongoing</span>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Series Info</div>
+                        <p>The Matriarchy Series (Book 3)</p>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Last Updated</div>
+                        <p>April 2, 2024</p>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Reader Review</div>
+                        <p class="review-quote">"The chemistry between Zuri and Kimani is EVERYTHING! I literally check for updates every day. Can't wait to see where their story goes!"</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Book Card 4 -->
+            <div class="book-card" data-category="completed standalone">
+                <div class="book-cover">
+                    <img src="/api/placeholder/400/320" alt="Sweet Like Honey">
+                    <span class="book-tag">#487 in Romance</span>
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">Sweet Like Honey</h3>
+                    <p class="book-short-desc">When pastry chef Amara meets mysterious coffee shop owner Isaiah, she discovers that love can be as sweet as her desserts.</p>
+                    <div class="book-stats">
+                        <div class="stat">
+                            <span>👁️ Reads:</span>
+                            <span>15.3K</span>
+                        </div>
+                        <div class="stat">
+                            <span>❤️ Votes:</span>
+                            <span>1.5K</span>
+                        </div>
+                    </div>
+                    <a href="https://www.wattpad.com/story/example4" target="_blank" class="book-link">Read on Wattpad</a>
+                    <button class="expand-btn">
+                        More Info
+                        <span class="expand-icon">▼</span>
+                    </button>
+                </div>
+                <div class="book-expanded">
+                    <div class="expanded-section">
+                        <div class="expanded-title">Full Synopsis</div>
+                        <p>After being let go from her high-pressure job at an upscale restaurant, pastry chef Amara Osei takes a chance on opening her own bakery in a cozy Nairobi neighborhood. When the handsome owner of the coffee shop next door offers a partnership opportunity, Amara finds herself drawn to Isaiah's quiet intensity and hidden depths. But as their business relationship blossoms into something more, Isaiah's secretive past threatens to unravel everything they've built together. A story about second chances, healing from past wounds, and finding sweetness in unexpected places.</p>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Status</div>
+                        <span class="status-badge status-completed">Completed</span>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Series Info</div>
+                        <p>Standalone Novel</p>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Last Updated</div>
+                        <p>December 5, 2023</p>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Reader Review</div>
+                        <p class="review-quote">"I devoured this book in one sitting! The food descriptions made me hungry and the romance made me swoon. Perfect comfort read."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Book Card 5 -->
+            <div class="book-card" data-category="ongoing standalone">
+                <div class="book-cover">
+                    <img src="/api/placeholder/400/320" alt="Moonlight Serenade">
+                    <span class="book-tag">#321 in Romance</span>
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">Moonlight Serenade</h3>
+                    <p class="book-short-desc">Rising star musician Makena never expected to fall for her brooding songwriter, especially when music industry drama threatens them both.</p>
+                    <div class="book-stats">
+                        <div class="stat">
+                            <span>👁️ Reads:</span>
+                            <span>12.9K</span>
+                        </div>
+                        <div class="stat">
+                            <span>❤️ Votes:</span>
+                            <span>1.3K</span>
+                        </div>
+                    </div>
+                    <a href="https://www.wattpad.com/story/example5" target="_blank" class="book-link">Read on Wattpad</a>
+                    <button class="expand-btn">
+                        More Info
+                        <span class="expand-icon">▼</span>
+                    </button>
+                </div>
+                <div class="book-expanded">
+                    <div class="expanded-section">
+                        <div class="expanded-title">Full Synopsis</div>
+                        <p>Makena Otieno's angelic voice is taking the Kenyan music scene by storm, but her record label insists she needs to collaborate with enigmatic songwriter Taji Kamau to create her debut album. Despite their instant creative chemistry, Taji's reluctance to step into the spotlight and Makena's ambition create constant tension. As they write songs that capture hearts across the nation, they must navigate industry politics, jealous rivals, and their growing feelings for each other. When a scandal threatens both their careers, they'll have to decide what matters more—the music, their dreams, or the love they've found in the most unexpected place.</p>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Status</div>
+                        <span class="status-badge status-ongoing">Ongoing</span>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Series Info</div>
+                        <p>Standalone Novel</p>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Last Updated</div>
+                        <p>March 22, 2024</p>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Reader Review</div>
+                        <p class="review-quote">"The music industry setting feels so authentic! Every chapter leaves me wanting more. Taji is officially my new book boyfriend!"</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Book Card 6 -->
+            <div class="book-card" data-category="completed standalone">
+                <div class="book-cover">
+                    <img src="/api/placeholder/400/320" alt="Letters to Yesterday">
+                    <span class="book-tag">#543 in Romance</span>
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">Letters to Yesterday</h3>
+                    <p class="book-short-desc">When Nyota discovers her grandmother's old love letters, she embarks on a journey that leads her to her own unexpected romance.</p>
+                    <div class="book-stats">
+                        <div class="stat">
+                            <span>👁️ Reads:</span>
+                            <span>10.2K</span>
+                        </div>
+                        <div class="stat">
+                            <span>❤️ Votes:</span>
+                            <span>980</span>
+                        </div>
+                    </div>
+                    <a href="https://www.wattpad.com/story/example6" target="_blank" class="book-link">Read on Wattpad</a>
+                    <button class="expand-btn">
+                        More Info
+                        <span class="expand-icon">▼</span>
+                    </button>
+                </div>
+                <div class="book-expanded">
+                    <div class="expanded-section">
+                        <div class="expanded-title">Full Synopsis</div>
+                        <p>While cleaning out her late grandmother's coastal home, doctoral student Nyota Mbeki discovers a collection of passionate love letters from the 1960s signed only with the initial "J." Determined to uncover this hidden chapter of her grandmother's life, Nyota's research leads her to historian and tour guide Baraka, whose grandfather might hold the key to the mystery. As they piece together a decades-old love story against the backdrop of Kenya's independence movement, Nyota and Baraka find themselves writing their own love story—one that bridges past and present. A tender tale about the enduring power of love across generations.</p>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Status</div>
+                        <span class="status-badge status-completed">Completed</span>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Series Info</div>
+                        <p>Standalone Novel</p>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Last Updated</div>
+                        <p>August 14, 2023</p>
+                    </div>
+                    <div class="expanded-section">
+                        <div class="expanded-title">Reader Review</div>
+                        <p class="review-quote">"The dual timeline romance had me completely invested! I cried happy tears at the ending. Such a beautiful story about love that spans decades."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+ 
+    
+        <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">L.T. Nyawira</div>
+                <div class="footer-social">
+                    <a href="https://www.wattpad.com/user/LyssahTraicey" target="_blank" class="social-icon social-wattpad" title="Wattpad"></a>
+                    <a href="https://www.instagram.com/lyssahtraicey/" target="_blank" class="social-icon social-instagram" title="Instagram"></a>
+                    <a href="https://twitter.com/LyssahTraicey" target="_blank" class="social-icon social-twitter" title="Twitter"></a>
+                    <a href="https://www.facebook.com/LyssahTraicey/" target="_blank" class="social-icon social-facebook" title="Facebook"></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2025 L.T. Nyawira. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+            <p class="footer-disclaimer">This website is a work of fiction and intended for entertainment purposes only. Any resemblance to real persons, living or dead, or actual events is purely coincidental.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Book Card Expansion
+        document.querySelectorAll('.expand-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const card = button.closest('.book-card');
+                card.classList.toggle('expanded');
+                
+                if (card.classList.contains('expanded')) {
+                    button.innerHTML = 'Less Info <span class="expand-icon">▲</span>';
+                } else {
+                    button.innerHTML = 'More Info <span class="expand-icon">▼</span>';
+                }
+            });
+        });
+        
+        // Filter Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const bookCards = document.querySelectorAll('.book-card');
+        const searchInput = document.getElementById('search-input');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filterValue = this.getAttribute('data-filter');
+                
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                bookCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category').includes(filterValue)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Search Functionality
+        searchInput.addEventListener('keyup', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            bookCards.forEach(card => {
+                const title = card.querySelector('.book-title').textContent.toLowerCase();
+                const shortDesc = card.querySelector('.book-short-desc').textContent.toLowerCase();
+                const fullSynopsis = card.querySelector('.book-expanded .expanded-section p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || shortDesc.includes(searchTerm) || fullSynopsis.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

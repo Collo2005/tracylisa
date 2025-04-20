@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L. T. Nyawira - Romance Author</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config={
+theme:{
+extend:{
+colors:{
+primary:'#d4668f',
+secondary:'#f8d0e0'
+},
+borderRadius:{
+'none':'0px',
+'sm':'4px',
+DEFAULT:'8px',
+'md':'12px',
+'lg':'16px',
+'xl':'20px',
+'2xl':'24px',
+'3xl':'32px',
+'full':'9999px',
+'button':'8px'
+}
+}
+}
+}
+</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+color: #4a4a4a;
+}
+h1, h2, h3, h4, h5 {
+font-family: 'Playfair Display', serif;
+}
+.hero-section {
+background-image: url('https://readdy.ai/api/search-image?query=romantic%20dreamy%20background%20with%20soft%20pink%20and%20white%20colors%2C%20gentle%20flowers%20and%20petals%2C%20ethereal%20light%2C%20elegant%20and%20sophisticated%20atmosphere%2C%20perfect%20for%20a%20romance%20author%20website%2C%20high%20quality%20professional%20photography&width=1920&height=1080&seq=1&orientation=landscape');
+background-size: cover;
+background-position: center;
+}
+.book-card:hover {
+transform: translateY(-8px);
+box-shadow: 0 15px 30px rgba(212, 102, 143, 0.1);
+}
+input[type="checkbox"] {
+appearance: none;
+-webkit-appearance: none;
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #d4668f;
+border-radius: 4px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+outline: none;
+}
+input[type="checkbox"]:checked {
+background-color: #d4668f;
+}
+input[type="checkbox"]:checked::after {
+content: "✓";
+color: white;
+font-size: 14px;
+}
+.custom-input {
+border: 1px solid #e5e7eb;
+transition: all 0.3s ease;
+}
+.custom-input:focus {
+border-color: #d4668f;
+box-shadow: 0 0 0 3px rgba(212, 102, 143, 0.1);
+outline: none;
+}
+.nav-link {
+position: relative;
+}
+.nav-link::after {
+content: '';
+position: absolute;
+width: 0;
+height: 2px;
+bottom: -2px;
+left: 0;
+background-color: #d4668f;
+transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+width: 100%;
+}
+.active::after {
+width: 100%;
+}
+</style>
+</head>
+<body class="bg-white">
+<header class="fixed w-full bg-white bg-opacity-95 shadow-sm z-50">
+<div class="container mx-auto px-4 py-3 flex justify-between items-center">
+<a href="#" class="text-3xl font-['Pacifico'] text-primary">L.T. Nyawira</a>
+<div class="hidden md:flex items-center space-x-8">
+<nav class="flex space-x-8">
+<a href="#home" class="nav-link active text-gray-800 hover:text-primary transition">Home</a>
+<a href="#about" class="nav-link text-gray-800 hover:text-primary transition">About</a>
+<a href="#books" class="nav-link text-gray-800 hover:text-primary transition">Books</a>
+<a href="#contact" class="nav-link text-gray-800 hover:text-primary transition">Contact</a>
+</nav>
+<a href="https://www.wattpad.com/user/LyssahTraicey" target="_blank" class="flex items-center space-x-2 bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition">
+<span class="w-5 h-5 flex items-center justify-center">
+<i class="ri-wechat-line"></i>
+</span>
+<span>Wattpad</span>
+</a>
+</div>
+<button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-800" id="mobile-menu-button">
+<i class="ri-menu-line text-2xl"></i>
+</button>
+</div>
+<div id="mobile-menu" class="hidden md:hidden bg-white px-4 py-3 shadow-md">
+<nav class="flex flex-col space-y-4">
+<a href="#home" class="text-gray-800 hover:text-primary transition py-2">Home</a>
+<a href="#about" class="text-gray-800 hover:text-primary transition py-2">About</a>
+<a href="#books" class="text-gray-800 hover:text-primary transition py-2">Books</a>
+<a href="#contact" class="text-gray-800 hover:text-primary transition py-2">Contact</a>
+<a href="https://www.wattpad.com/user/LyssahTraicey" target="_blank" class="flex items-center space-x-2 bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition w-fit">
+<span class="w-5 h-5 flex items-center justify-center">
+<i class="ri-wechat-line"></i>
+</span>
+<span>Wattpad</span>
+</a>
+</nav>
+</div>
+</header>
+<main>
+<section id="home" class="hero-section min-h-screen pt-20 flex items-center">
+<div class="container mx-auto px-4 py-16 md:py-24">
+<div class="w-full flex flex-col md:flex-row items-center">
+<div class="w-full md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+<h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4 leading-tight">
+Crafting Love Stories That Touch Hearts
+</h1>
+<p class="text-lg md:text-xl text-gray-700 mb-8 max-w-lg">
+Welcome to the world of L.T. Nyawira, where emotions flow through words and love stories come alive on every page.
+</p>
+<div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+<a href="books.html" class="bg-primary text-white px-8 py-3 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition text-center">
+Explore My Stories
+</a>
+<a href="https://www.wattpad.com/user/LyssahTraicey" target="_blank" class="border-2 border-primary text-primary px-8 py-3 !rounded-button whitespace-nowrap hover:bg-primary hover:text-white transition text-center">
+Read on Wattpad
+</a>
+</div>
+</div>
+<div class="w-full md:w-1/2 flex justify-center md:justify-end">
+<div class="relative">
+<img src="tracy.jpeg" alt="L.T. Nyawira" class="rounded-lg shadow-xl max-w-full h-auto object-cover z-10 relative">
+<div class="absolute -bottom-8 -right-8 bg-white p-4 rounded-lg shadow-lg z-20 hidden md:block">
+<img src="https://readdy.ai/api/search-image?query=romantic%20book%20cover%20design%20with%20soft%20colors%2C%20elegant%20typography%2C%20minimalist%20style%2C%20high%20quality%20professional%20design&width=180&height=280&seq=3&orientation=portrait" alt="Featured Book" class="w-32 h-48 object-cover rounded">
+</div>
+<div class="absolute -z-10 w-full h-full bg-secondary rounded-lg -top-4 -left-4"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="about" class="py-20 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">About the Author</h2>
+<div class="w-24 h-1 bg-primary mx-auto"></div>
+</div>
+<div class="flex flex-col md:flex-row items-center gap-12">
+<div class="w-full md:w-1/3">
+<div class="relative">
+<img src="tracy 2.png" alt="L.T. Nyawira" class="rounded-lg shadow-lg w-full h-auto object-cover">
+<div class="absolute -z-10 w-full h-full bg-primary bg-opacity-10 rounded-lg -top-4 -right-4"></div>
+</div>
+</div>
+<div class="w-full md:w-2/3">
+<h3 class="text-2xl font-bold text-gray-900 mb-4">L.T. Nyawira (@LyssahTraicey)</h3>
+<p class="text-gray-700 mb-6 leading-relaxed">
+Hello, I'm L.T. Nyawira, writing under the pen name LyssahTraicey on Wattpad. My journey as a storyteller began with a deep fascination for human emotions and the intricate dance of love. Through my stories, I explore the complexities of relationships, the power of vulnerability, and the beauty of finding connection in unexpected places.
+</p>
+<p class="text-gray-700 mb-8 leading-relaxed">
+With over 2,000 dedicated followers on Wattpad, I've had the privilege of touching hearts across the globe with my tales of love, loss, and redemption. My stories often feature strong characters navigating the challenges of modern romance while staying true to their authentic selves.
+</p>
+<div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary mb-8">
+<h4 class="text-xl font-bold text-gray-900 mb-3">My 2025 Message to Readers</h4>
+<p class="text-gray-700 italic">
+"As we embrace 2025, I want to express my deepest gratitude to each of you who has journeyed with my characters. Your support fuels my creativity and inspires me to delve deeper into the human heart. This year, I promise to bring you stories that not only entertain but also illuminate the many facets of love in our complex world. Thank you for being part of this beautiful adventure."
+</p>
+</div>
+<div class="flex flex-wrap gap-6">
+<div class="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-3">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full text-primary">
+<i class="ri-user-heart-line text-xl"></i>
+</div>
+<div>
+<p class="text-sm text-gray-500">Followers</p>
+<p class="text-lg font-bold text-gray-900">2,000+</p>
+</div>
+</div>
+<div class="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-3">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full text-primary">
+<i class="ri-book-open-line text-xl"></i>
+</div>
+<div>
+<p class="text-sm text-gray-500">Total Reads</p>
+<p class="text-lg font-bold text-gray-900">50,000+</p>
+</div>
+</div>
+<div class="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-3">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full text-primary">
+<i class="ri-quill-pen-line text-xl"></i>
+</div>
+<div>
+<p class="text-sm text-gray-500">Stories</p>
+<p class="text-lg font-bold text-gray-900">8 Published</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="books" class="py-20">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">My Stories</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Dive into worlds where love conquers all, hearts are tested, and characters discover the true meaning of connection.</p>
+<div class="w-24 h-1 bg-primary mx-auto mt-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="book-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+<div class="relative h-80">
+<img src="https://readdy.ai/api/search-image?query=romantic%20book%20cover%20with%20African%20setting%2C%20elegant%20typography%20showing%20title%20ALANNA%2C%20professional%20book%20cover%20design%2C%20high%20quality&width=600&height=900&seq=5&orientation=portrait" alt="ALANNA" class="w-full h-full object-cover">
+<div class="absolute top-0 right-0 bg-primary text-white px-3 py-1 rounded-bl-lg text-sm font-medium">
+#11 in Kenya
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-center mb-3">
+<h3 class="text-xl font-bold text-gray-900">ALANNA</h3>
+<div class="flex items-center text-gray-600 text-sm">
+<span class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-eye-line"></i>
+</span>
+26.2K reads
+</div>
+</div>
+<p class="text-gray-600 mb-4">
+When Alanna returns to her hometown after ten years, she never expected to face the man who broke her heart. Now a successful business owner, Kiano wants a second chance, but can Alanna trust him with her heart again?
+</p>
+<a href="https://www.wattpad.com/user/LyssahTraicey" target="_blank" class="inline-flex items-center text-primary hover:underline">
+Read on Wattpad
+<span class="w-4 h-4 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</span>
+</a>
+</div>
+</div>
+<div class="book-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+<div class="relative h-80">
+<img src="https://readdy.ai/api/search-image?query=romantic%20book%20cover%20with%20African%20savanna%20setting%2C%20elegant%20typography%20showing%20title%20Queen%20of%20the%20Plains%2C%20professional%20book%20cover%20design%2C%20high%20quality&width=600&height=900&seq=6&orientation=portrait" alt="Queen of the Plains" class="w-full h-full object-cover">
+<div class="absolute top-0 right-0 bg-primary text-white px-3 py-1 rounded-bl-lg text-sm font-medium">
+#212 in Help
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-center mb-3">
+<h3 class="text-xl font-bold text-gray-900">Queen of the Plains</h3>
+<div class="flex items-center text-gray-600 text-sm">
+<span class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-eye-line"></i>
+</span>
+24.1K reads
+</div>
+</div>
+<p class="text-gray-600 mb-4">
+Zuri never wanted to follow in her mother's footsteps as a community leader. But when drought threatens her village, she must embrace her heritage and the handsome conservationist who arrives to help.
+</p>
+<a href="https://www.wattpad.com/user/LyssahTraicey" target="_blank" class="inline-flex items-center text-primary hover:underline">
+Read on Wattpad
+<span class="w-4 h-4 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</span>
+</a>
+</div>
+</div>
+<div class="book-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+<div class="relative h-80">
+<img src="https://readdy.ai/api/search-image?query=romantic%20book%20cover%20with%20modern%20urban%20setting%2C%20elegant%20typography%20showing%20title%20Baby%20Without%20Benefits%2C%20professional%20book%20cover%20design%2C%20high%20quality&width=600&height=900&seq=7&orientation=portrait" alt="Baby Without Benefits" class="w-full h-full object-cover">
+<div class="absolute top-0 right-0 bg-primary text-white px-3 py-1 rounded-bl-lg text-sm font-medium">
+#363 in Loving
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-center mb-3">
+<h3 class="text-xl font-bold text-gray-900">Baby Without Benefits</h3>
+<div class="flex items-center text-gray-600 text-sm">
+<span class="w-4 h-4 flex items-center justify-center mr-1">
+<i class="ri-eye-line"></i>
+</span>
+3.2K reads
+</div>
+</div>
+<p class="text-gray-600 mb-4">
+After a one-night stand with her boss, Amara finds herself pregnant. With her career on the line and her heart at risk, she must navigate the complicated relationship with the father of her child who wants more than she's ready to give.
+</p>
+<a href="https://www.wattpad.com/user/LyssahTraicey" target="_blank" class="inline-flex items-center text-primary hover:underline">
+Read on Wattpad
+<span class="w-4 h-4 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</span>
+</a>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<a href="https://www.wattpad.com/user/LyssahTraicey" target="_blank" class="bg-white border-2 border-primary text-primary px-8 py-3 !rounded-button whitespace-nowrap hover:bg-primary hover:text-white transition inline-flex items-center">
+Discover All My Stories
+<span class="w-5 h-5 flex items-center justify-center ml-2">
+<i class="ri-external-link-line"></i>
+</span>
+</a>
+</div>
+</div>
+</section>
+<section id="contact" class="py-20 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Have questions, feedback, or just want to connect? I'd love to hear from you!</p>
+<div class="w-24 h-1 bg-primary mx-auto mt-4"></div>
+</div>
+<div class="flex flex-col lg:flex-row gap-12">
+<div class="w-full lg:w-1/2">
+<form class="bg-white p-8 rounded-lg shadow-md">
+<div class="mb-6">
+<label for="name" class="block text-gray-700 mb-2">Your Name</label>
+<input type="text" id="name" class="custom-input w-full px-4 py-3 rounded bg-gray-50 text-gray-800" placeholder="Enter your name">
+</div>
+<div class="mb-6">
+<label for="email" class="block text-gray-700 mb-2">Email Address</label>
+<input type="email" id="email" class="custom-input w-full px-4 py-3 rounded bg-gray-50 text-gray-800" placeholder="Enter your email">
+</div>
+<div class="mb-6">
+<label for="subject" class="block text-gray-700 mb-2">Subject</label>
+<input type="text" id="subject" class="custom-input w-full px-4 py-3 rounded bg-gray-50 text-gray-800" placeholder="What is this about?">
+</div>
+<div class="mb-6">
+<label for="message" class="block text-gray-700 mb-2">Your Message</label>
+<textarea id="message" rows="5" class="custom-input w-full px-4 py-3 rounded bg-gray-50 text-gray-800" placeholder="Type your message here..."></textarea>
+</div>
+<div class="mb-6 flex items-start">
+<input type="checkbox" id="newsletter" class="mr-3 mt-1">
+<label for="newsletter" class="text-gray-700">Subscribe to my newsletter for updates on new stories and exclusive content</label>
+</div>
+<button type="submit" class="bg-primary text-white px-8 py-3 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition w-full">Send Message</button>
+</form>
+</div>
+<div class="w-full lg:w-1/2">
+<div class="bg-white p-8 rounded-lg shadow-md h-full">
+<h3 class="text-2xl font-bold text-gray-900 mb-6">Connect With Me</h3>
+<div class="mb-8">
+<p class="text-gray-700 mb-4">
+I love hearing from my readers! Whether you want to discuss my stories, share your thoughts, or explore collaboration opportunities, I'm just a message away.
+</p>
+<p class="text-gray-700">
+For the quickest response, reach out to me on Wattpad or through the contact form. I typically respond within 48 hours.
+</p>
+</div>
+<div class="space-y-4 mb-8">
+<a href="https://www.wattpad.com/user/LyssahTraicey" target="_blank" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full text-primary mr-4">
+<i class="ri-wechat-line text-xl"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-900">Wattpad</h4>
+<p class="text-gray-600 text-sm">@LyssahTraicey</p>
+</div>
+</a>
+<a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full text-primary mr-4">
+<i class="ri-instagram-line text-xl"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-900">Instagram</h4>
+<p class="text-gray-600 text-sm">@ltnyawira_author</p>
+</div>
+</a>
+<a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full text-primary mr-4">
+<i class="ri-twitter-x-line text-xl"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-900">Twitter</h4>
+<p class="text-gray-600 text-sm">@LTNyawira</p>
+</div>
+</a>
+</div>
+<div class="bg-secondary bg-opacity-30 p-6 rounded-lg">
+<h4 class="font-bold text-gray-900 mb-3 flex items-center">
+<span class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-heart-line"></i>
+</span>
+Reader Community
+</h4>
+<p class="text-gray-700 mb-4">
+Join my reader community to discuss my stories with fellow fans, participate in exclusive Q&A sessions, and get early access to new chapters.
+</p>
+<a href="contact.html" data-readdy="true" class="inline-flex items-center text-primary hover:underline">
+Join the Community
+<span class="w-4 h-4 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-gray-900 text-white py-12">
+<div class="container mx-auto px-4">
+<div class="flex flex-col md:flex-row justify-between items-center mb-8">
+<a href="#" class="text-3xl font-['Pacifico'] text-white mb-6 md:mb-0">L.T. Nyawira</a>
+<div class="flex space-x-4">
+<a href="https://www.wattpad.com/user/LyssahTraicey" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition">
+<i class="ri-wechat-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition">
+<i class="ri-instagram-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition">
+<i class="ri-twitter-x-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition">
+<i class="ri-facebook-line"></i>
+</a>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8 pb-4">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 mb-4 md:mb-0">
+&copy; 2025 L.T. Nyawira. All rights reserved.
+</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+<a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+<a href="#" class="text-gray-400 hover:text-white transition">Cookie Policy</a>
+</div>
+</div>
+<p class="text-gray-500 text-center text-sm mt-6">
+This website is for promotional purposes only. All stories are available on Wattpad.
+</p>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+const navLinks = document.querySelectorAll('.nav-link');
+function setActiveLink() {
+const scrollPosition = window.scrollY;
+document.querySelectorAll('section').forEach(section => {
+const sectionTop = section.offsetTop - 100;
+const sectionHeight = section.offsetHeight;
+const sectionId = section.getAttribute('id');
+if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+navLinks.forEach(link => {
+link.classList.remove('active');
+if (link.getAttribute('href') === `#${sectionId}`) {
+link.classList.add('active');
+}
+});
+}
+});
+}
+window.addEventListener('scroll', setActiveLink);
+setActiveLink();
+});
+document.addEventListener('DOMContentLoaded', function() {
+const navLinks = document.querySelectorAll('a[href^="#"]');
+navLinks.forEach(link => {
+link.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+// Close mobile menu if open
+const mobileMenu = document.getElementById('mobile-menu');
+if (!mobileMenu.classList.contains('hidden')) {
+mobileMenu.classList.add('hidden');
+}
+}
+});
+});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Our Reading Community - L. T. Nyawira</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#d4668f',
+                        secondary: '#f8d0e0'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #4a4a4a;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            background-color: #fff;
+            border: 2px solid #d4668f;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            outline: none;
+        }
+
+        input[type="checkbox"]:checked {
+            background-color: #d4668f;
+        }
+
+        input[type="checkbox"]:checked::after {
+            content: "✓";
+            color: white;
+            font-size: 14px;
+        }
+
+        .custom-input {
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .custom-input:focus {
+            border-color: #d4668f;
+            box-shadow: 0 0 0 3px rgba(212, 102, 143, 0.1);
+            outline: none;
+        }
+
+        .password-strength-indicator {
+            height: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .strength-weak {
+            width: 33%;
+            background-color: #ef4444;
+        }
+
+        .strength-medium {
+            width: 66%;
+            background-color: #f59e0b;
+        }
+
+        .strength-strong {
+            width: 100%;
+            background-color: #10b981;
+        }
+
+        .testimonial-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 102, 143, 0.15);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .page-background {
+            background-image: url('https://readdy.ai/api/search-image?query=romantic%2520dreamy%2520background%2520with%2520soft%2520pink%2520and%2520white%2520colors%252C%2520very%2520subtle%2520floral%2520pattern%252C%2520extremely%2520light%2520and%2520airy%252C%2520perfect%2520for%2520form%2520background%252C%2520high%2520quality%2520professional%2520design&width=1920&height=1080&seq=101&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Loading animation for form submission */
+        .submit-loader {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Toast notification */
+        .toast-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            transform: translateX(120%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast-notification.show {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="page-background">
+    <header class="bg-white bg-opacity-95 shadow-sm py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center text-gray-800 hover:text-primary transition">
+                <span class="w-8 h-8 flex items-center justify-center mr-2">
+                    <i class="ri-arrow-left-line"></i>
+                </span>
+                <span>Back to Main Site</span>
+            </a>
+            <a href="#" class="text-3xl font-['Pacifico'] text-primary">L.T. Nyawira</a>
+            <div class="w-8 h-8"></div>
+        </div>
+    </header>
+
+    <main class="py-12 md:py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Join Our Reading Community</h1>
+                <p class="text-lg text-gray-700 max-w-2xl mx-auto">Connect with fellow readers, participate in exclusive discussions, and gain early access to new chapters from L.T. Nyawira's romantic universe.</p>
+                <div class="w-24 h-1 bg-primary mx-auto mt-6"></div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8 md:gap-12 max-w-6xl mx-auto">
+                <div class="w-full lg:w-1/2 order-2 lg:order-1">
+                    <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Community Benefits</h2>
+                        <div class="space-y-6 mb-8">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full text-primary mr-4 flex-shrink-0">
+                                    <i class="ri-book-mark-line text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Exclusive Content Access</h3>
+                                    <p class="text-gray-700">Gain access to bonus chapters, character backstories, and special editions not available anywhere else.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full text-primary mr-4 flex-shrink-0">
+                                    <i class="ri-time-line text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Early Chapter Releases</h3>
+                                    <p class="text-gray-700">Be among the first to read new chapters before they're published on Wattpad or other platforms.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full text-primary mr-4 flex-shrink-0">
+                                    <i class="ri-chat-heart-line text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Direct Author Interaction</h3>
+                                    <p class="text-gray-700">Participate in monthly Q&A sessions with L.T. Nyawira and influence future storylines through reader polls.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-secondary bg-opacity-20 p-6 rounded-lg mb-8">
+                            <h3 class="font-bold text-gray-900 mb-3 flex items-center">
+                                <span class="w-5 h-5 flex items-center justify-center mr-2">
+                                    <i class="ri-calendar-event-line"></i>
+                                </span>
+                                Upcoming Community Events
+                            </h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                        <i class="ri-checkbox-circle-line"></i>
+                                    </span>
+                                    <span>April 25, 2025 - Live Reading of "Queen of the Plains" new chapter</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                        <i class="ri-checkbox-circle-line"></i>
+                                    </span>
+                                    <span>May 2, 2025 - Character Development Workshop with L.T. Nyawira</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                        <i class="ri-checkbox-circle-line"></i>
+                                    </span>
+                                    <span>May 10, 2025 - Monthly Book Club Discussion: "ALANNA"</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white border border-gray-200 rounded-lg p-6">
+                            <h3 class="font-bold text-gray-900 mb-4">What Our Members Say</h3>
+                            <div class="testimonial-slider relative">
+                                <div class="testimonial-container overflow-hidden">
+                                    <div class="testimonials flex transition-transform duration-300" id="testimonials-wrapper">
+                                        <div class="testimonial-card min-w-full p-4">
+                                            <div class="flex items-center mb-4">
+                                                <img src="https://readdy.ai/api/search-image?query=professional%2520portrait%2520of%2520a%2520young%2520African%2520woman%2520with%2520short%2520natural%2520hair%252C%2520warm%2520smile%252C%2520neutral%2520background%252C%2520high%2520quality%2520headshot&width=100&height=100&seq=102&orientation=squarish" alt="Amina K." class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy">
+                                                <div>
+                                                    <h4 class="font-bold text-gray-900">Amina K.</h4>
+                                                    <p class="text-sm text-gray-600">Member for 1 year</p>
+                                                </div>
+                                            </div>
+                                            <p class="text-gray-700 italic">"Being part of this community has transformed my reading experience. I love getting early access to chapters and the discussions we have about character motivations are so insightful!"</p>
+                                        </div>
+                                        <div class="testimonial-card min-w-full p-4">
+                                            <div class="flex items-center mb-4">
+                                                <img src="https://readdy.ai/api/search-image?query=professional%2520portrait%2520of%2520a%2520middle-aged%2520African%2520man%2520with%2520glasses%252C%2520friendly%2520expression%252C%2520neutral%2520background%252C%2520high%2520quality%2520headshot&width=100&height=100&seq=103&orientation=squarish" alt="Daniel M." class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy">
+                                                <div>
+                                                    <h4 class="font-bold text-gray-900">Daniel M.</h4>
+                                                    <p class="text-sm text-gray-600">Member for 8 months</p>
+                                                </div>
+                                            </div>
+                                            <p class="text-gray-700 italic">"The exclusive content alone is worth joining, but the community itself is what keeps me here. L.T. Nyawira actually listens to our feedback and incorporates it into her stories!"</p>
+                                        </div>
+                                        <div class="testimonial-card min-w-full p-4">
+                                            <div class="flex items-center mb-4">
+                                                <img src="https://readdy.ai/api/search-image?query=professional%2520portrait%2520of%2520a%2520young%2520African%2520woman%2520with%2520braided%2520hair%252C%2520confident%2520smile%252C%2520neutral%2520background%252C%2520high%2520quality%2520headshot&width=100&height=100&seq=104&orientation=squarish" alt="Sophia N." class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy">
+                                                <div>
+                                                    <h4 class="font-bold text-gray-900">Sophia N.</h4>
+                                                    <p class="text-sm text-gray-600">Member for 1.5 years</p>
+                                                </div>
+                                            </div>
+                                            <p class="text-gray-700 italic">"I've made so many friends through this community who share my love for romance novels. The monthly Q&A sessions with L.T. are the highlight of my month!"</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-center mt-4 space-x-2">
+                                    <button class="w-3 h-3 rounded-full bg-gray-300 testimonial-dot active" data-index="0" aria-label="View testimonial 1"></button>
+                                    <button class="w-3 h-3 rounded-full bg-gray-300 testimonial-dot" data-index="1" aria-label="View testimonial 2"></button>
+                                    <button class="w-3 h-3 rounded-full bg-gray-300 testimonial-dot" data-index="2" aria-label="View testimonial 3"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/2 order-1 lg:order-2">
+                    <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Sign Up to Join</h2>
+                        <form id="signup-form">
+                            <div class="space-y-5">
+                                <div>
+                                    <label for="name" class="block text-gray-700 mb-2">Full Name</label>
+                                    <input type="text" id="name" class="custom-input w-full px-4 py-3 rounded bg-gray-50 text-gray-800" placeholder="Enter your full name" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+                                    <input type="email" id="email" class="custom-input w-full px-4 py-3 rounded bg-gray-50 text-gray-800" placeholder="Enter your email address" required>
+                                </div>
+                                <div>
+                                    <label for="password" class="block text-gray-700 mb-2">Create Password</label>
+                                    <div class="relative">
+                                        <input type="password" id="password" class="custom-input w-full px-4 py-3 rounded bg-gray-50 text-gray-800 pr-10" placeholder="Create a secure password" required>
+                                        <button type="button" id="toggle-password" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700" aria-label="Toggle password visibility">
+                                            <span class="w-6 h-6 flex items-center justify-center">
+                                                <i class="ri-eye-line"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="mt-2">
+                                        <div class="bg-gray-200 rounded-full h-1 w-full">
+                                            <div class="password-strength-indicator rounded-full"></div>
+                                        </div>
+                                        <p class="text-xs text-gray-500 mt-1" id="password-strength-text">Password strength: Enter a password</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="reading-preferences" class="block text-gray-700 mb-2">Reading Preferences</label>
+                                    <div class="relative">
+                                        <button type="button" id="reading-preferences-button" class="custom-input w-full px-4 py-3 rounded bg-gray-50 text-gray-800 text-left flex justify-between items-center" aria-haspopup="listbox" aria-expanded="false">
+                                            <span id="selected-preference">Select your reading preference</span>
+                                            <span class="w-5 h-5 flex items-center justify-center">
+                                                <i class="ri-arrow-down-s-line"></i>
+                                            </span>
+                                        </button>
+                                        <div id="reading-preferences-dropdown" class="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg hidden" role="listbox">
+                                            <ul class="py-2 max-h-60 overflow-y-auto">
+                                                <li class="px-4 py-2 hover:bg-gray-50 cursor-pointer" role="option">E-books</li>
+                                                <li class="px-4 py-2 hover:bg-gray-50 cursor-pointer" role="option">Physical books</li>
+                                                <li class="px-4 py-2 hover:bg-gray-50 cursor-pointer" role="option">Audiobooks</li>
+                                                <li class="px-4 py-2 hover:bg-gray-50 cursor-pointer" role="option">Web serials</li>
+                                                <li class="px-4 py-2 hover:bg-gray-50 cursor-pointer" role="option">All formats</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-3">Favorite Romance Genres</label>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="genre-contemporary" class="mr-3">
+                                            <label for="genre-contemporary" class="text-gray-700">Contemporary Romance</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="genre-historical" class="mr-3">
+                                            <label for="genre-historical" class="text-gray-700">Historical Romance</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="genre-paranormal" class="mr-3">
+                                            <label for="genre-paranormal" class="text-gray-700">Paranormal Romance</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="genre-suspense" class="mr-3">
+                                            <label for="genre-suspense" class="text-gray-700">Romantic Suspense</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="genre-african" class="mr-3">
+                                            <label for="genre-african" class="text-gray-700">African Romance</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" id="genre-fantasy" class="mr-3">
+                                            <label for="genre-fantasy" class="text-gray-700">Fantasy Romance</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start pt-2">
+                                    <input type="checkbox" id="terms" class="mr-3 mt-1" required>
+                                    <label for="terms" class="text-gray-700">I agree to the <a href="terms.html" class="text-primary hover:underline">Terms of Service</a> and <a href="privacy.html" class="text-primary hover:underline">Privacy Policy</a></label>
+                                </div>
+                                <div class="flex items-start">
+                                    <input type="checkbox" id="newsletter" class="mr-3 mt-1">
+                                    <label for="newsletter" class="text-gray-700">Subscribe to the newsletter for updates on new stories and community events</label>
+                                </div>
+                                <button type="submit" class="bg-primary text-white px-8 py-3 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition w-full flex items-center justify-center" id="submit-button">
+                                    <span class="w-5 h-5 flex items-center justify-center mr-2">
+                                        <i class="ri-user-add-line"></i>
+                                    </span>
+                                    <span id="submit-text">Join the Community</span>
+                                    <span class="submit-loader"></span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto mt-16">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                    <p class="text-gray-700">Everything you need to know about our reading community</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="faq-list divide-y divide-gray-200">
+                        <div class="faq-item">
+                            <button class="faq-question w-full text-left px-6 py-4 focus:outline-none flex justify-between items-center" aria-expanded="false" aria-controls="faq-answer-1">
+                                <span class="font-bold text-gray-900">What is included in the community membership?</span>
+                                <span class="w-6 h-6 flex items-center justify-center text-primary transition-transform duration-300">
+                                    <i class="ri-add-line"></i>
+                                </span>
+                            </button>
+                            <div class="faq-answer px-6 text-gray-700" id="faq-answer-1">
+                                <p>Community membership includes exclusive content not available on Wattpad, early access to new chapters (typically 1-2 weeks before public release), monthly live Q&A sessions with L.T. Nyawira, participation in polls that influence story development, and access to our private discussion forums where you can connect with other romance readers.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question w-full text-left px-6 py-4 focus:outline-none flex justify-between items-center" aria-expanded="false" aria-controls="faq-answer-2">
+                                <span class="font-bold text-gray-900">Is there a fee to join the community?</span>
+                                <span class="w-6 h-6 flex items-center justify-center text-primary transition-transform duration-300">
+                                    <i class="ri-add-line"></i>
+                                </span>
+                            </button>
+                            <div class="faq-answer px-6 text-gray-700" id="faq-answer-2">
+                                <p>Basic membership is completely free and gives you access to our community forums and monthly newsletter. We also offer a premium tier for $5/month that includes all the exclusive content, early access benefits, and participation in private writing workshops with L.T. Nyawira. You can upgrade anytime after joining.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question w-full text-left px-6 py-4 focus:outline-none flex justify-between items-center" aria-expanded="false" aria-controls="faq-answer-3">
+                                <span class="font-bold text-gray-900">How often are community events held?</span>
+                                <span class="w-6 h-6 flex items-center justify-center text-primary transition-transform duration-300">
+                                    <i class="ri-add-line"></i>
+                                </span>
+                            </button>
+                            <div class="faq-answer px-6 text-gray-700" id="faq-answer-3">
+                                <p>We host at least two community events each month: a live Q&A session with L.T. Nyawira and a book club discussion about one of her stories or a selected romance novel. Additional events like character development workshops, writing tips sessions, and special guest author appearances are scheduled throughout the year.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question w-full text-left px-6 py-4 focus:outline-none flex justify-between items-center" aria-expanded="false" aria-controls="faq-answer-4">
+                                <span class="font-bold text-gray-900">Can I suggest ideas for future stories?</span>
+                                <span class="w-6 h-6 flex items-center justify-center text-primary transition-transform duration-300">
+                                    <i class="ri-add-line"></i>
+                                </span>
+                            </button>
+                            <div class="faq-answer px-6 text-gray-700" id="faq-answer-4">
+                                <p>Absolutely! One of the benefits of community membership is the ability to participate in story development. L.T. Nyawira regularly polls members for feedback on character decisions, plot directions, and even future story concepts. Many community members have seen their suggestions incorporated into published stories, and L.T. always acknowledges these contributions.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question w-full text-left px-6 py-4 focus:outline-none flex justify-between items-center" aria-expanded="false" aria-controls="faq-answer-5">
+                                <span class="font-bold text-gray-900">How do I access exclusive content after joining?</span>
+                                <span class="w-6 h-6 flex items-center justify-center text-primary transition-transform duration-300">
+                                    <i class="ri-add-line"></i>
+                                </span>
+                            </button>
+                            <div class="faq-answer px-6 text-gray-700" id="faq-answer-5">
+                                <p>After your registration is confirmed, you'll receive login credentials for our member portal. All exclusive content is organized by story in the portal, including bonus chapters, character profiles, and early releases. You'll also receive email notifications whenever new exclusive content is added, so you never miss an update.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <a href="#" class="text-3xl font-['Pacifico'] text-white mb-6 md:mb-0">L.T. Nyawira</a>
+                <div class="flex space-x-4">
+                    <a href="https://www.wattpad.com/user/LyssahTraicey" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition" aria-label="Wattpad">
+                        <i class="ri-wechat-line"></i>
+                    </a>
+                    <a href="https://instagram.com/ltnyawira_author" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition" aria-label="Instagram">
+                        <i class="ri-instagram-line"></i>
+                    </a>
+                    <a href="https://twitter.com/LTNyawira" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition" aria-label="Twitter">
+                        <i class="ri-twitter-x-line"></i>
+                    </a>
+                    <a href="https://facebook.com/LTNyawiraAuthor" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition" aria-label="Facebook">
+                        <i class="ri-facebook-line"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 pb-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">
+                        &copy; 2025 L.T. Nyawira. All rights reserved.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="privacy.html" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                        <a href="terms.html" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                        <a href="index.html" class="text-gray-400 hover:text-white transition">Back to Main Site</a>
+                    </div>
+                </div>
+                <p class="text-gray-500 text-center text-sm mt-6">
+                    Join our community to connect with fellow readers and get exclusive content from L.T. Nyawira.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="toast-notification">
+        <div class="bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg flex items-center">
+            <div class="w-6 h-6 flex items-center justify-center mr-3">
+                <i class="ri-check-line"></i>
+            </div>
+            <div>
+                <p class="font-medium">Registration Successful!</p>
+                <p class="text-sm">Check your email for confirmation and next steps.</p>
+            </div>
+            <button class="ml-4 text-white hover:text-gray-200" id="close-toast" aria-label="Close notification">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+    </div>
+    <script>
+        // Enhanced Book Card Expansion
+        document.querySelectorAll('.expand-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const card = button.closest('.book-card');
+                const content = card.querySelector('.expandable-content');
+                const isExpanded = card.classList.contains('expanded');
+                
+                // Toggle expanded state
+                card.classList.toggle('expanded');
+                
+                // Update button text and ARIA label
+                if (card.classList.contains('expanded')) {
+                    button.innerHTML = 'Less Info <span class="expand-icon" aria-hidden="true">▲</span>';
+                    button.setAttribute('aria-expanded', 'true');
+                    
+                    // Smooth height transition
+                    content.style.display = 'block';
+                    const height = content.scrollHeight;
+                    content.style.height = '0';
+                    content.style.overflow = 'hidden';
+                    setTimeout(() => {
+                        content.style.height = `${height}px`;
+                    }, 10);
+                    
+                    // After transition completes
+                    setTimeout(() => {
+                        content.style.height = '';
+                        content.style.overflow = '';
+                    }, 300);
+                } else {
+                    button.innerHTML = 'More Info <span class="expand-icon" aria-hidden="true">▼</span>';
+                    button.setAttribute('aria-expanded', 'false');
+                    
+                    // Smooth collapse
+                    const height = content.scrollHeight;
+                    content.style.height = `${height}px`;
+                    content.style.overflow = 'hidden';
+                    setTimeout(() => {
+                        content.style.height = '0';
+                    }, 10);
+                    
+                    // After transition completes
+                    setTimeout(() => {
+                        content.style.display = 'none';
+                        content.style.height = '';
+                        content.style.overflow = '';
+                    }, 300);
+                }
+                
+                // Focus management for accessibility
+                if (!isExpanded) {
+                    setTimeout(() => {
+                        const firstFocusable = card.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                        if (firstFocusable) firstFocusable.focus();
+                    }, 310);
+                }
+            });
+            
+            // Keyboard accessibility
+            button.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    button.click();
+                }
+            });
+        });
+    </script>
+    </html>
